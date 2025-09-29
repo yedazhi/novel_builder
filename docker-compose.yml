@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3154:5173"
+    volumes:
+      - ./frontend:/app:rw  # 挂载源代码，支持热重载
+      - /app/node_modules  # 防止本地node_modules覆盖容器中的
